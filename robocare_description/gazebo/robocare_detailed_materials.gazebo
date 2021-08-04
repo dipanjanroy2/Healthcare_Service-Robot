@@ -1,0 +1,114 @@
+<?xml version="1.0" ?>
+<robot name="robocare" xmlns:xacro="http://www.ros.org/wiki/xacro" >
+
+<xacro:property name="body_color" value="Gazebo/PurpleGlow" />
+<xacro:property name="tg_color" value="Gazebo/PurpleGlow"/>
+<xacro:property name="white" value="Gazebo/WhiteGlow" />
+<xacro:property name="screen" value="Gazebo/Black" />
+<xacro:property name="blue" value="Gazebo/Blue" />
+<xacro:property name="white_c" value="Gazebo/White" />
+<xacro:property name="r_color" value="Gazebo/RedGlow" />
+<xacro:property name="b_color" value="Gazebo/BlueTransparentOverlay" />
+<xacro:property name="rt_color" value="Gazebo/Red" />
+<xacro:property name="darkblue" value="Gazebo/BlueLaser" />
+<xacro:property name="basket" value="Gazebo/CloudySky" />
+
+
+<gazebo reference="base_link">
+  <material>${blue}</material>
+</gazebo>
+
+<gazebo reference="right_wheel">
+  <material>${white}</material>
+</gazebo>
+
+<gazebo reference="left_wheel">
+  <material>${white}</material>
+</gazebo>
+
+<gazebo reference="right_tyre">
+  <material>${rt_color}</material>
+</gazebo>
+<gazebo reference="left_tyre">
+  <material>${rt_color}</material>
+</gazebo>
+
+
+<gazebo reference="front_caster">
+  <material>${blue}</material>
+</gazebo>
+
+<gazebo reference="back_caster">
+  <material>${blue}</material>
+</gazebo>
+
+<gazebo reference="long_bar">
+  <material>${white}</material>
+</gazebo>
+
+<gazebo reference="head">
+  <material>${blue}</material>
+</gazebo>
+
+
+<gazebo reference="lid">
+  <material>${r_color}</material>
+</gazebo>
+
+<gazebo reference="basket_base_1">
+  <material>${blue}</material>
+</gazebo>
+
+<gazebo reference="electronics_lid">
+  <material>${body_color}</material>
+</gazebo>
+
+<gazebo reference="lidar">
+  <material>${body_color}</material>
+</gazebo>
+
+<gazebo reference="screen_1">
+  <material>${basket}</material>
+</gazebo>
+
+<gazebo reference="realsense_1">
+  <material>${b_color}</material>
+</gazebo>
+
+<gazebo reference="basket_1">
+  <material>${darkblue}</material>
+</gazebo>
+
+<gazebo reference="arm_base_1">
+  <material>${white_c}</material>
+</gazebo>
+
+<gazebo reference="head">
+  <material>${blue}</material>
+</gazebo>
+
+<gazebo reference="base_arm">
+  <material>${blue}</material>
+</gazebo>
+<gazebo reference="musc_1">
+  <material>${blue}</material>
+</gazebo>
+<gazebo reference="elbow_1">
+  <material>${blue}</material>
+</gazebo>
+<gazebo reference="finger_base_1">
+  <material>${r_color}</material>
+</gazebo>
+<gazebo reference="fin2_1">
+  <material>${white}</material>
+</gazebo>
+
+<gazebo reference="fin1_1">
+  <material>${white}</material>
+</gazebo>
+<gazebo reference="base_join_1">
+  <material>${white}</material>
+</gazebo>
+
+
+</robot>

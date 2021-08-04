@@ -1,0 +1,669 @@
+<?xml version="1.0" ?>
+<robot name="robocare" xmlns:xacro="http://www.ros.org/wiki/xacro" >
+
+<xacro:include filename="$(find robocare_description)/urdf/materials.xacro" />
+<!--<xacro:include filename="$(find rur_detailed_description)/urdf/rur_detailed.trans" />-->
+
+<xacro:include filename="$(find robocare_description)/gazebo/robocare_detailed_materials.gazebo" />
+<xacro:include filename="$(find robocare_description)/gazebo/robocare_detailed_physics.gazebo"/>
+<xacro:include filename="$(find robocare_description)/gazebo/robocare_detailed_plugins.gazebo" />
+
+
+<link name="base_link">
+  <inertial>
+    <origin rpy="0 0 0" xyz="0.008717050480319273 0.0013081620436010979 0.15115173825671988"/>
+    <mass value="15.428530536945836"/>
+    <inertia ixx="0.257115" ixy="0.001043" ixz="-0.003282" iyy="0.342385" iyz="-0.001055" izz="0.481029"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <geometry>
+      <mesh filename="package://rur_detailed_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="white"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <geometry>
+      <mesh filename="package://rur_detailed_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="right_wheel">
+  <inertial>
+    <origin rpy="0 0 0" xyz="-1.828063402709465e-05 0.05312247246161367 0.0002521115303902449"/>
+    <mass value="9.856921104469992"/>
+    <inertia ixx="0.020599" ixy="-7e-06" ixz="2e-06" iyy="0.03491" iyz="-2.8e-05" izz="0.020606"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.0 0.227 -0.099839"/>
+    <geometry>
+      <mesh filename="package://rur_detailed_description/meshes/right_wheel.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="blue"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.0 0.227 -0.099839"/>
+    <geometry>
+      <mesh filename="package://rur_detailed_description/meshes/right_wheel.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="left_wheel">
+  <inertial>
+    <origin rpy="0 0 0" xyz="-1.8254554994090065e-05 -0.0531169103077688 0.0002522130405125389"/>
+    <mass value="9.871217353742987"/>
+    <inertia ixx="0.020624" ixy="7e-06" ixz="2e-06" iyy="0.034948" iyz="2.8e-05" izz="0.020631"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="0.0 -0.227 -0.099839"/>
+    <geometry>
+      <mesh filename="package://rur_detailed_description/meshes/left_wheel.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="blue"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="0.0 -0.227 -0.099839"/>
+    <geometry>
+      <mesh filename="package://rur_detailed_description/meshes/left_wheel.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="right_tyre">
+  <inertial>
+    <origin rpy="0 0 0" xyz="-5.919068486634321e-08 0.011578960710706687 0.00016105311301901903"/>
+    <mass value="4.766678644162142"/>
+    <inertia ixx="0.012277" ixy="-0.0" ixz="0.0" iyy="0.022304" iyz="-0.0" izz="0.012277"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.0 0.2 -0.1"/>
+    <geometry>
+      <mesh filename="package://rur_detailed_description/meshes/right_tyre.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="white"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.0 0.2 -0.1"/>
+    <geometry>
+      <mesh filename="package://rur_detailed_description/meshes/right_tyre.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="left_tyre">
+  <inertial>
+    <origin rpy="0 0 0" xyz="9.30327782468428e-09 -0.011578963887744514 0.000161051324790773"/>
+    <mass value="4.766678875971219"/>
+    <inertia ixx="0.012277" ixy="0.0" ixz="-0.0" iyy="0.022304" iyz="0.0" izz="0.012277"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="0.0 -0.2 -0.1"/>
+    <geometry>
+      <mesh filename="package://rur_detailed_description/meshes/left_tyre.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="white"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="0.0 -0.2 -0.1"/>
+    <geometry>
+      <mesh filename="package://rur_detailed_description/meshes/left_tyre.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="front_caster">
+  <inertial>
+    <origin rpy="0 0 0" xyz="-0.025000797505036393 -2.9865544783409456e-16 -0.030208086053412367"/>
+    <mass value="0.4573656248802168"/>
+    <inertia ixx="0.000244" ixy="-0.0" ixz="0.0" iyy="0.000244" iyz="0.0" izz="0.000192"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.172 -0.0 -0.07"/>
+    <geometry>
+      <mesh filename="package://rur_detailed_description/meshes/front_caster.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="blue"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.172 -0.0 -0.07"/>
+    <geometry>
+      <mesh filename="package://rur_detailed_description/meshes/front_caster.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="back_caster">
+  <inertial>
+    <origin rpy="0 0 0" xyz="0.024999202494963513 -3.2214520215812444e-16 -0.030208086053412374"/>
+    <mass value="0.4573656248802169"/>
+    <inertia ixx="0.000244" ixy="-0.0" ixz="0.0" iyy="0.000244" iyz="0.0" izz="0.000192"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="0.172 0.0 -0.07"/>
+    <geometry>
+      <mesh filename="package://rur_detailed_description/meshes/back_caster.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="blue"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="0.172 0.0 -0.07"/>
+    <geometry>
+      <mesh filename="package://rur_detailed_description/meshes/back_caster.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="lid">
+  <inertial>
+    <origin rpy="0 0 0" xyz="-0.20973058370001274 -0.0002000297507654507 0.021779111268977636"/>
+    <mass value="18.187373287828525"/>
+    <inertia ixx="0.290093" ixy="0.0" ixz="-0.003295" iyy="0.300261" iyz="0.0" izz="0.584949"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.225 -0.0002 -0.25"/>
+    <geometry>
+      <mesh filename="package://rur_detailed_description/meshes/lid.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="white"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.225 -0.0002 -0.25"/>
+    <geometry>
+      <mesh filename="package://rur_detailed_description/meshes/lid.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="lidar">
+  <inertial>
+    <origin rpy="0 0 0" xyz="-2.3483549826952554e-09 -3.4770506128023716e-07 0.009561590682608923"/>
+    <mass value="0.0886181648250366"/>
+    <inertia ixx="3.3e-05" ixy="0.0" ixz="0.0" iyy="3.3e-05" iyz="0.0" izz="6e-05"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.1575 0.0 -0.3"/>
+    <geometry>
+      <mesh filename="package://rur_detailed_description/meshes/lidar.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="black"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.1575 0.0 -0.3"/>
+    <geometry>
+      <mesh filename="package://rur_detailed_description/meshes/lidar.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="electronics_lid">
+  <inertial>
+    <origin rpy="0 0 0" xyz="-0.0511574994774171 -0.011997734212864706 -0.0015000000000000568"/>
+    <mass value="0.633989646973267"/>
+    <inertia ixx="0.003384" ixy="-9e-06" ixz="-0.0" iyy="0.000771" iyz="0.0" izz="0.004153"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="0.035 -0.015 -0.28"/>
+    <geometry>
+      <mesh filename="package://rur_detailed_description/meshes/electronics_lid.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="blue"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="0.035 -0.015 -0.28"/>
+    <geometry>
+      <mesh filename="package://rur_detailed_description/meshes/electronics_lid.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="long_bar">
+  <inertial>
+    <origin rpy="0 0 0" xyz="0.03584192761999582 0.003225175684225926 0.4595434632519135"/>
+    <mass value="7.553317644619513"/>
+    <inertia ixx="1.13396" ixy="-0.000125" ixz="-0.002615" iyy="1.139907" iyz="-0.018664" izz="0.009557"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.015 -0.0 -0.291"/>
+    <geometry>
+      <mesh filename="package://robocare_description/meshes/long_bar_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.015 -0.0 -0.291"/>
+    <geometry>
+      <mesh filename="package://robocare_description/meshes/long_bar_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="head">
+  <inertial>
+    <origin rpy="0 0 0" xyz="-0.007139140620123164 -0.007663979943047888 0.09632764443509445"/>
+    <mass value="0.7099152010145662"/>
+    <inertia ixx="0.008756" ixy="-2.3e-05" ixz="0.000266" iyy="0.005173" iyz="0.0003" izz="0.004006"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.0 -0.0 -1.101"/>
+    <geometry>
+      <mesh filename="package://robocare_description/meshes/monitor_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="white"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.0 -0.0 -1.101"/>
+    <geometry>
+      <mesh filename="package://robocare_description/meshes/monitor_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="screen_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="0.002500000000001116 -4.6672532337185824e-07 -0.0013618913330846194"/>
+    <mass value="0.5735007514761783"/>
+    <inertia ixx="0.005873" ixy="0.0" ixz="0.0" iyy="0.001382" iyz="0.0" izz="0.004493"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.0205 0.01177 -1.245074"/>
+    <geometry>
+      <mesh filename="package://robocare_description/meshes/screen_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.0205 0.01177 -1.245074"/>
+    <geometry>
+      <mesh filename="package://robocare_description/meshes/screen_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="realsense_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="0.03473144841772651 -4.6672532325563176e-07 -5.483436593678448e-08"/>
+    <mass value="0.329509187958012"/>
+    <inertia ixx="0.001258" ixy="-0.0" ixz="-0.0" iyy="0.000145" iyz="0.0" izz="0.001379"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="0.0255 0.01177 -1.346648"/>
+    <geometry>
+      <mesh filename="package://robocare_description/meshes/realsense_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="0.0255 0.01177 -1.346648"/>
+    <geometry>
+      <mesh filename="package://robocare_description/meshes/realsense_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="basket_base_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="0.0019871258520150767 -0.002554436894952264 -0.0025000000000000577"/>
+    <mass value="1.0153968550242205"/>
+    <inertia ixx="0.020291" ixy="0.000453" ixz="0.0" iyy="0.013041" iyz="-0.0" izz="0.033328"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.0 -0.0 -0.751"/>
+    <geometry>
+      <mesh filename="package://robocare_description/meshes/basket_base_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.0 -0.0 -0.751"/>
+    <geometry>
+      <mesh filename="package://robocare_description/meshes/basket_base_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="basket_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="-0.02569651564632526 -0.03166906721561094 0.013881994676189224"/>
+    <mass value="0.25701991747417935"/>
+    <inertia ixx="0.000679" ixy="0.0" ixz="-0.0" iyy="0.002633" iyz="2e-06" izz="0.003185"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.024692 -0.182461 -0.751"/>
+    <geometry>
+      <mesh filename="package://robocare_description/meshes/basket_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.024692 -0.182461 -0.751"/>
+    <geometry>
+      <mesh filename="package://robocare_description/meshes/basket_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+
+<link name="base_arm">
+  <inertial>
+    <origin rpy="0 0 0" xyz="0.012076123028712391 -0.12586947160678996 0.8067467349089783"/>
+    <mass value="0.41662835740019055"/>
+    <inertia ixx="0.000951" ixy="5.9e-05" ixz="1.6e-05" iyy="0.002422" iyz="-3.5e-05" izz="0.003345"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <geometry>
+      <mesh filename="package://rocare_arm_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <geometry>
+      <mesh filename="package://rocare_arm_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="musc_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="0.0024528563193816997 0.029369279373445967 0.06944957584162426"/>
+    <mass value="0.4042358344706466"/>
+    <inertia ixx="0.001441" ixy="-1e-06" ixz="-3.2e-05" iyy="0.001691" iyz="-2.2e-05" izz="0.000289"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.0 0.115 -0.875"/>
+    <geometry>
+      <mesh filename="package://rocare_arm_description/meshes/musc_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.0 0.115 -0.875"/>
+    <geometry>
+      <mesh filename="package://rocare_arm_description/meshes/musc_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="elbow_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="0.08009117340560826 -0.021060582174940265 0.05552393460555938"/>
+    <mass value="0.5803793457847506"/>
+    <inertia ixx="0.001567" ixy="-0.000142" ixz="-0.001657" iyy="0.004276" iyz="-9.7e-05" izz="0.002836"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.019636 0.08 -1.027721"/>
+    <geometry>
+      <mesh filename="package://rocare_arm_description/meshes/elbow_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.019636 0.08 -1.027721"/>
+    <geometry>
+      <mesh filename="package://rocare_arm_description/meshes/elbow_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="finger_base_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="0.049311396595673795 0.000188260685575245 0.03334167139941013"/>
+    <mass value="0.16857406840931222"/>
+    <inertia ixx="9.8e-05" ixy="-0.0" ixz="-6.7e-05" iyy="0.000179" iyz="-0.0" izz="0.000146"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.208384 0.095 -1.159155"/>
+    <geometry>
+      <mesh filename="package://rocare_arm_description/meshes/finger_base_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.208384 0.095 -1.159155"/>
+    <geometry>
+      <mesh filename="package://rocare_arm_description/meshes/finger_base_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="base_join_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="0.0001155028239109162 -0.005551813783454498 0.02664591074817846"/>
+    <mass value="0.26898918626746976"/>
+    <inertia ixx="0.000222" ixy="0.0" ixz="-0.0" iyy="0.000307" iyz="2.5e-05" izz="0.000276"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.0 0.1 -0.821"/>
+    <geometry>
+      <mesh filename="package://rocare_arm_description/meshes/base_join_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.0 0.1 -0.821"/>
+    <geometry>
+      <mesh filename="package://rocare_arm_description/meshes/base_join_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="fin2_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="0.041466495640240186 -0.0002233898388563499 0.029226992517715544"/>
+    <mass value="0.10326498679959267"/>
+    <inertia ixx="3.2e-05" ixy="0.0" ixz="-3.7e-05" iyy="8.4e-05" iyz="0.0" izz="5.9e-05"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.298558 0.062277 -1.222152"/>
+    <geometry>
+      <mesh filename="package://rocare_arm_description/meshes/fin2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.298558 0.062277 -1.222152"/>
+    <geometry>
+      <mesh filename="package://rocare_arm_description/meshes/fin2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="fin1_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="0.04142839202311416 0.0004252007549860881 0.029635179606995132"/>
+    <mass value="0.10392012536514646"/>
+    <inertia ixx="3.3e-05" ixy="-1e-06" ixz="-3.7e-05" iyy="8.5e-05" iyz="-0.0" izz="5.9e-05"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.298558 0.12794 -1.222152"/>
+    <geometry>
+      <mesh filename="package://rocare_arm_description/meshes/fin1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.298558 0.12794 -1.222152"/>
+    <geometry>
+      <mesh filename="package://rocare_arm_description/meshes/fin1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+
+
+
+
+<joint name="motor_right" type="continuous">
+  <origin rpy="0 0 0" xyz="0.0 -0.227 0.099839"/>
+  <parent link="base_link"/>
+  <child link="right_wheel"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+<joint name="motor_left" type="continuous">
+  <origin rpy="0 0 0" xyz="0.0 0.227 0.099839"/>
+  <parent link="base_link"/>
+  <child link="left_wheel"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+<joint name="Rigid3" type="fixed">
+  <origin rpy="0 0 0" xyz="0.0 0.027 0.000161"/>
+  <parent link="right_wheel"/>
+  <child link="right_tyre"/>
+</joint>
+
+<joint name="Rigid4" type="fixed">
+  <origin rpy="0 0 0" xyz="0.0 -0.027 0.000161"/>
+  <parent link="left_wheel"/>
+  <child link="left_tyre"/>
+</joint>
+
+<joint name="Rigid5" type="fixed">
+  <origin rpy="0 0 0" xyz="0.172 0.0 0.07"/>
+  <parent link="base_link"/>
+  <child link="front_caster"/>
+</joint>
+
+<joint name="Rigid6" type="fixed">
+  <origin rpy="0 0 0" xyz="-0.172 0.0 0.07"/>
+  <parent link="base_link"/>
+  <child link="back_caster"/>
+</joint>
+
+<joint name="Rigid7" type="fixed">
+  <origin rpy="0 0 0" xyz="0.225 0.0002 0.25"/>
+  <parent link="base_link"/>
+  <child link="lid"/>
+</joint>
+
+<joint name="Rigid8" type="fixed">
+  <origin rpy="0 0 0" xyz="-0.0675 -0.0002 0.05"/>
+  <parent link="lid"/>
+  <child link="lidar"/>
+</joint>
+
+<joint name="Rigid9" type="fixed">
+  <origin rpy="0 0 0" xyz="-0.26 0.0148 0.03"/>
+  <parent link="lid"/>
+  <child link="electronics_lid"/>
+</joint>
+
+<joint name="Rigid10" type="fixed">
+  <origin rpy="0 0 0" xyz="-0.21 -0.0002 0.041"/>
+  <parent link="lid"/>
+  <child link="long_bar"/>
+</joint>
+
+<!--
+<joint name="slider" type="prismatic">
+  <origin rpy="0 0 0" xyz="0.096 0.0 0.714"/>
+  <parent link="long_bar"/>
+  <child link="head"/>
+  <axis xyz="-0.0 0.0 1.0"/>
+  <limit effort="100" lower="-0.6" upper="0.0" velocity="100"/>
+</joint>
+-->
+<joint name="slider" type="fixed">
+  <origin rpy="0 0 0" xyz="-0.020 0.0 0.85"/>
+  <parent link="long_bar"/>
+  <child link="head"/>
+</joint>
+
+<joint name="newscr" type="fixed">
+  <origin rpy="0 0 0" xyz="0.0205 -0.01177 0.144074"/>
+  <parent link="head"/>
+  <child link="screen_1"/>
+</joint>
+<joint name="sence" type="fixed">
+  <origin rpy="0 0 0" xyz="-0.0255 -0.01177 0.245648"/>
+  <parent link="head"/>
+  <child link="realsense_1"/>
+</joint>
+
+<joint name="baskbase" type="fixed">
+  <origin rpy="0 0 0" xyz="-0.015 0.0 0.5"/>
+  <parent link="long_bar"/>
+  <child link="basket_base_1"/>
+</joint>
+
+<joint name="bbase2" type="fixed">
+  <origin rpy="0 0 0" xyz="0.024692 0.182461 0.0"/>
+  <parent link="basket_base_1"/>
+  <child link="basket_1"/>
+</joint>
+
+<joint name="bbase3" type="fixed">
+  <origin rpy="0 0 0" xyz="0.006653 -0.000667 -0.801001"/>
+  <parent link="basket_base_1"/>
+  <child link="base_arm"/>
+</joint>
+
+
+
+<!-- <joint name="camera_joint" type="revolute">
+  <origin rpy="0 0 0" xyz="0.07175 -0.072 0.33"/>
+  <parent link="head"/>
+  <child link="camera_link"/>
+  <axis xyz="0.0 1.0 -0.0"/>
+  <limit effort="100" lower="-3.141593" upper="3.141593" velocity="100"/>
+</joint> -->
+
+<joint name="musc_rev" type="revolute">
+  <origin rpy="0 0 0" xyz="0.0 -0.015 0.054"/>
+  <parent link="base_join_1"/>
+  <child link="musc_1"/>
+  <axis xyz="0.0 -1.0 0.0"/>
+  <limit effort="100" lower="-1.570864" upper="0.0" velocity="100"/>
+</joint>
+
+<joint name="elb_rev" type="revolute">
+  <origin rpy="0 0 0" xyz="0.019636 0.035 0.152721"/>
+  <parent link="musc_1"/>
+  <child link="elbow_1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+  <limit effort="100" lower="-1.0472" upper="1.39626" velocity="100"/>
+</joint>
+
+<joint name="fin_rev" type="revolute">
+  <origin rpy="0 0 0" xyz="0.188748 -0.015 0.131434"/>
+  <parent link="elbow_1"/>
+  <child link="finger_base_1"/>
+  <axis xyz="0.819152 0.0 0.573576"/>
+  <limit effort="100" lower="0.0" upper="1.570885" velocity="100"/>
+</joint>
+
+<joint name="bas_rev" type="revolute">
+  <origin rpy="0 0 0" xyz="0.0 -0.1 0.821"/>
+  <parent link="base_arm"/>
+  <child link="base_join_1"/>
+  <axis xyz="0.0 0.0 1.0"/>
+  <limit effort="100" lower="-3.141593" upper="0.0" velocity="100"/>
+</joint>
+
+<joint name="fintI_slider" type="prismatic">
+  <origin rpy="0 0 0" xyz="0.090174 0.032723 0.062997"/>
+  <parent link="finger_base_1"/>
+  <child link="fin2_1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+  <limit effort="100" lower="-0.025" upper="0.0" velocity="100"/>
+</joint>
+
+<joint name="fino_Slider" type="prismatic">
+  <origin rpy="0 0 0" xyz="0.090174 -0.03294 0.062997"/>
+  <parent link="finger_base_1"/>
+  <child link="fin1_1"/>
+  <axis xyz="0.0 -1.0 0.0"/>
+  <limit effort="100" lower="-0.025" upper="0.0" velocity="100"/>
+</joint>
+
+
+
+
+
+
+</robot>

@@ -1,0 +1,31 @@
+rocare_arm_controller:
+  # Publish all joint states -----------------------------------
+  joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 50
+
+  # Position Controllers --------------------------------------
+  musc_rev_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: musc_rev
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  elb_rev_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: elb_rev
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  fin_rev_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: fin_rev
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  bas_rev_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: bas_rev
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  fintI_slider_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: fintI_slider
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  fino_Slider_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: fino_Slider
+    pid: {p: 100.0, i: 0.01, d: 10.0}

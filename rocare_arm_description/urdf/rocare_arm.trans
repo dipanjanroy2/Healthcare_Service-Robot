@@ -1,0 +1,70 @@
+<?xml version="1.0" ?>
+<robot name="rocare_arm" xmlns:xacro="http://www.ros.org/wiki/xacro" >
+
+<transmission name="musc_rev_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="musc_rev">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="musc_rev_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="elb_rev_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="elb_rev">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="elb_rev_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="fin_rev_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="fin_rev">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="fin_rev_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="bas_rev_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="bas_rev">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="bas_rev_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="fintI_slider_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="fintI_slider">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="fintI_slider_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="fino_Slider_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="fino_Slider">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="fino_Slider_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+</robot>
